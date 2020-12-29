@@ -6,21 +6,18 @@ class UsersController < ApplicationController
 
   def update
     @user = current_user
-    if @user.update_atrributes(current_user_params)
+    if @user.update_attributes(current_user_params)
       flash[:notice] = "Saved..."
     else
-      flash[:alert] = "Cannot Update..."
-
+      flash[:alert] = "Cannot update..."
     end
     redirect_to dashboard_path
-
-    
   end
 
   private
 
   def current_user_params
-    params.require(:user).permit(:from, :about, :status, :language)
+    params.require(:user).permit(:from, :about, :status, :language, :avatar)
     
   end
 
