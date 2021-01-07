@@ -4,7 +4,7 @@ class User < ApplicationRecord
 
   has_one_attached :avatar
   has_many :gigs
-  enum pricing_type: [:basic, :standard, :premium]
+  
   
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, 
